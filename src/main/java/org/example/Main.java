@@ -13,7 +13,7 @@ import java.net.URL;
 public class Main {
 
         @Test
-        public void LaunchApk() throws MalformedURLException, URISyntaxException {
+        public void LaunchApk() throws MalformedURLException, URISyntaxException, InterruptedException {
 
             UiAutomator2Options options = new UiAutomator2Options();
             options.setDeviceName("DeepakPhone");
@@ -25,7 +25,20 @@ public class Main {
             oHomePage.input_userName.sendKeys("helloworld@gmail.com");
             oHomePage.input_password.sendKeys("testing1234");
             oHomePage.button_startTest.click();
+            Thread.sleep(5000);
             Assert.assertTrue(true,"Logged In");
+
+            //Registration
+
+            RegistrationPage oRegistrationPage= new RegistrationPage(driver);
+
+            oRegistrationPage.input_name.sendKeys("Deepak");
+            oRegistrationPage.input_email.sendKeys("deepak@1234");
+            oRegistrationPage.input_phoneNumber.sendKeys("7777777777");
+            oRegistrationPage.input_subscribeCheck.click();
+            Thread.sleep(2);
+            oRegistrationPage.button_submit.click();
+            Assert.assertTrue(true,"Registration Done");
 
 
         }
