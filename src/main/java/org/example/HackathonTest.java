@@ -171,7 +171,7 @@ public class HackathonTest {
 
     }
 
-    @Test(enabled = false, description = "")
+    @Test(enabled = true, description = "")
     public void alertHandlingAssignment() {
         try{
             UiAutomator2Options options = new UiAutomator2Options();
